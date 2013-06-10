@@ -1,0 +1,68 @@
+@import html5-reset
+@import _mixins
+
+body
+  font-family: 'Helvetica Neue', 'Helvetica', arial, sans-serif
+
+#wrapper
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  background: #eee
+  cursor: default
+  -webkit-user-select: none
+  -moz-user-select: -moz-none
+  -ms-user-select: none
+  user-select: none
+
+#top
+  position: absolute
+  top: 40px
+  left: 10px
+  width: 70px
+  text-align: center
+  cursor: default
+  @include drop_shadow(2px, 4px, rgba(0, 0, 0, .3))
+  @include prefix_transition(box-shadow, .2s)
+  &.ui-draggable-dragging
+    @include drop_shadow(6px, 20px)
+  #branding
+    padding: 10px 0
+    background: #f00
+    color: #fff
+  .toolbar_wrapper
+    li
+      display: block
+    a
+      cursor: pointer
+      display: block
+      padding-top: 20px
+      padding-bottom: 20px
+      outline: 1px solid rgba(0, 0, 0, .2)
+      outline-offset: -1px
+      margin-top: -1px
+      background: #fff
+      text-align: left
+      text-indent: -10000px
+      background: url('../../img/sprite.svg') no-repeat top
+      height: 32px
+      background-color: rgba(255, 255, 255, .8)
+      &.current
+        background-color: rgba(0, 0, 0, .74)
+        background-image: url('../../img/sprite_white.svg')
+        color: #fff
+        outline-color: rgba(0, 0, 0, .8)
+      &[name='select']
+        background-position: center 20px
+      &[name='rect']
+        background-position: center -44px
+
+#canvas-svg
+  margin: 20px
+  background: #fff
+  outline: 1px solid rgba(0, 0, 0, .2)
+  .selected, .selected *
+    stroke: #0cf
+    stroke-width: 2
